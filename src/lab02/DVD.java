@@ -6,13 +6,18 @@ public class DVD {
     public String director = "";
     public int length = 0;
     public float cost = -1;
+    private static int nbDigitalVideoDiscs = 0;
+    private int id = 0;
 
     public DVD(){
-
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DVD(String title){
         this.title = title;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public String getTitle() {
