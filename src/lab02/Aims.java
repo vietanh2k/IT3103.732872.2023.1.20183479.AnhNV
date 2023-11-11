@@ -16,7 +16,7 @@ public class Aims {
         anOrder.addDVD(dvd3);
 
         anOrder.readDVD();
-        System.out.println("Total cost is: ");
+        System.out.println("Total cost is:  ");
         System.out.printf("%.2f", anOrder.totalCost());
         System.out.println();
 
