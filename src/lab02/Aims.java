@@ -12,7 +12,7 @@ public class Aims {
         DVD dvd2 = new DVD("Khoa hoc", "science", "Huu tu", 30, 25f);
         anOrder.addDVD(dvd2);
 
-        DVD dvd3 = new DVD("Name3", "unknown", 30f);
+        DVD dvd3 = new DVD("Name3", "unknown" , 30f);
         anOrder.addDVD(dvd3);
 
         anOrder.readDVD();
