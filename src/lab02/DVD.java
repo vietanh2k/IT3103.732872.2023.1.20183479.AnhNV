@@ -50,6 +50,9 @@ public class DVD {
     public void setCost(float cost) {
         this.cost = cost;
     }
+    public int getId() {
+        return id;
+    }
 
     public DVD(String title, String category, float cost) {
         super();

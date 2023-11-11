@@ -96,6 +96,60 @@ public class Cart {
         }
     }
 
+    public void printCart() {
+        if (qtyOrdered == 0) {
+            System.out.println("The cart is empty. Can not remove any object.");
+        } else {
+            System.out.println("*******************CART*******************");
+            myTotalCost = 0;
+            for (int i = 1; i <= qtyOrdered; i++) {
+                String dvdStr = i + ". "+ itemsOrdered[i].toString();
+                System.out.println(dvdStr);
+                myTotalCost += itemsOrdered[i].getCost();
+            }
+            System.out.println("Total cost: " + myTotalCost);
+            System.out.println("*****************************************");
+        }
+    }
+
+    public void searchByTitle(String title) {
+        if (qtyOrdered == 0) {
+            System.out.println("The cart is empty. Can not remove any object.");
+        } else {
+            System.out.println("*******************CART*******************");
+            myTotalCost = 0;
+            int ind = 1;
+            for (int i = 1; i <= qtyOrdered; i++) {
+                if(itemsOrdered[i].getTitle().equals(title)) {
+                    String dvdStr = ind + ". " + itemsOrdered[i].toString();
+                    System.out.println(dvdStr);
+                    myTotalCost += itemsOrdered[i].getCost();
+                }
+            }
+            System.out.println("Total cost: " + myTotalCost);
+            System.out.println("*****************************************");
+        }
+    }
+
+    public void searchById(int id) {
+        if (qtyOrdered == 0) {
+            System.out.println("The cart is empty. Can not remove any object.");
+        } else {
+            System.out.println("*******************CART*******************");
+            myTotalCost = 0;
+            int ind = 1;
+            for (int i = 1; i <= qtyOrdered; i++) {
+                if(itemsOrdered[i].getId()== id) {
+                    String dvdStr = ind + ". " + itemsOrdered[i].toString();
+                    System.out.println(dvdStr);
+                    myTotalCost += itemsOrdered[i].getCost();
+                }
+            }
+            System.out.println("Total cost: " + myTotalCost);
+            System.out.println("*****************************************");
+        }
+    }
+
     public float totalCost() {
         for (int i = 0; i < qtyOrdered; i++) {
             myTotalCost += itemsOrdered[i].getCost();
