@@ -1,4 +1,7 @@
-package lab02;
+package AimsProject.hust.soict.dsai.aims;
+
+import AimsProject.hust.soict.dsai.aims.cart.Cart;
+import AimsProject.hust.soict.dsai.aims.disc.DVD;
 
 public class Aims {
     public static void main(String[] args) {

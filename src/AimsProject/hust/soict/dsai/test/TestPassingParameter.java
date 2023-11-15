@@ -1,4 +1,6 @@
-package lab02;
+package AimsProject.hust.soict.dsai.test;
+
+import AimsProject.hust.soict.dsai.aims.disc.DVD;
 
 public class TestPassingParameter {
 

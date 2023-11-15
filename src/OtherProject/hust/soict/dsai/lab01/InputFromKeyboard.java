@@ -1,6 +1,5 @@
-package lab01;
+package OtherProject.hust.soict.dsai.lab01;
 
-import javax.swing.*;
 import java.util.Scanner;
 
 public class InputFromKeyboard {

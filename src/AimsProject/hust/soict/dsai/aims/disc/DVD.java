@@ -1,4 +1,4 @@
-package lab02;
+package AimsProject.hust.soict.dsai.aims.disc;
 
 public class DVD {
     public String title = "";

@@ -1,4 +1,6 @@
-package lab02;
+package AimsProject.hust.soict.dsai.aims.store;
+
+import AimsProject.hust.soict.dsai.aims.disc.DVD;
 
 public class Store {
     public static final int MAX_NUMBERS = 999;
