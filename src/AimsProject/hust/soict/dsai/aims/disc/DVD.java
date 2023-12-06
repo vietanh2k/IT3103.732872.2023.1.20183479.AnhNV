@@ -1,11 +1,9 @@
 package AimsProject.hust.soict.dsai.aims.disc;
 
-public class DVD {
-    public String title = "";
-    public String category = "";
-    public String director = "";
-    public int length = 0;
-    public float cost = -1;
+import AimsProject.hust.soict.dsai.aims.compactDisc.Disc;
+import AimsProject.hust.soict.dsai.aims.playable.Playable;
+
+public class DVD extends Disc implements Playable {
     private static int nbDigitalVideoDiscs = 0;
     private int id = 0;
 
@@ -15,64 +13,32 @@ public class DVD {
     }
 
     public DVD(String title){
-        this.title = title;
-        nbDigitalVideoDiscs++;
+        super(++nbDigitalVideoDiscs, title, "", 0,0, "");
         this.id = nbDigitalVideoDiscs;
+
     }
 
-    public String getTitle() {
-        return title;
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    public String getDirector() {
-        return director;
-    }
-    public void setDirector(String director) {
-        this.director = director;
-    }
-    public int getLength() {
-        return length;
-    }
-    public void setLength(int length) {
-        this.length = length;
-    }
-    public float getCost() {
-        return cost;
-    }
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
     public int getId() {
         return id;
     }
 
     public DVD(String title, String category, float cost) {
-        super();
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
+        super(0, title, category, cost, 0, "");
     }
 
     public DVD(String title, String category, String director, int length, float cost) {
-        super();
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.length = length;
-        this.cost = cost;
-        this.cost = cost;
+        super(0, title, category, cost, length, director);
+
     }
     @Override
     public String toString() {
-        return "DigitalVideoDisc [title=" + title + ", category=" + category + ", director=" + director + ", length="
-                + length + ", cost=" + cost + "]";
+        return "DigitalVideoDisc [title=" + this.getTitle() + ", category=" + this.getCategory() + ", director=" + this.getLength() + ", length="
+                + this.getDirector() + ", cost=" + this.getCost() + "]";
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
 }

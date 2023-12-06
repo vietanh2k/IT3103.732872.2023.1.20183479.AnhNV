@@ -1,10 +1,11 @@
 package AimsProject.hust.soict.dsai.aims.store;
 
 import AimsProject.hust.soict.dsai.aims.disc.DVD;
+import AimsProject.hust.soict.dsai.aims.media.Media;
 
 public class Store {
     public static final int MAX_NUMBERS = 999;
-    private final DVD[] itemsInStore = new DVD[MAX_NUMBERS];
+    private final Media[] itemsInStore = new Media[MAX_NUMBERS];
     int qtyOrdered;
 
     public boolean checkFull() {
@@ -15,10 +16,18 @@ public class Store {
         }
     }
 
+    public boolean checkExist(Media media) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsInStore[i].equals(media)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public void addDVD(DVD disc) {
+    public void addMedia(Media media) {
         if (!checkFull()) {
-            itemsInStore[qtyOrdered] = disc;
+            itemsInStore[qtyOrdered] = media;
             System.out.println("Object added successfully.");
             qtyOrdered++;
         } else {
@@ -26,16 +35,37 @@ public class Store {
         }
     }
 
-    public void addDVD(DVD[] discList) {
-        for(DVD disc: discList){
-            if (!checkFull()) {
-                itemsInStore[qtyOrdered] = disc;
-                System.out.println("Object added successfully.");
-                qtyOrdered++;
+    public Media search(String title) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsInStore[i].getTitle().equals(title)) {
+                return itemsInStore[i];
+            }
+        }
+
+        return null;
+    }
+
+    public void removeMedia(Media media) {
+        if (qtyOrdered == 0) {
+            System.out.println("The store is empty. Can not remove any object.");
+        } else {
+            if (checkExist(media) && qtyOrdered > 1) {
+                for (int i = 0; i < qtyOrdered - 1; i++) {
+                    int j = i + 1;
+                    Media temp = itemsInStore[i];
+                    itemsInStore[i] = itemsInStore[j];
+                    itemsInStore[j] = temp;
+
+                }
+                qtyOrdered--;
+                System.out.println("Remove successfully.");
+            } else if (checkExist(media)) {
+                qtyOrdered--;
+                System.out.println("Remove successfully.");
             } else {
-                System.out.println("The store is full.");
-                return;
+                System.out.println("There is no object matching the object you want to delete.");
             }
         }
     }
+
 }

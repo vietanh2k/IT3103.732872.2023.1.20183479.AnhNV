@@ -34,6 +34,8 @@ public class bt6_6 {
             System.out.println();
         }
 
+        String[] a = {"b", "c"};
+
         scanner.close();
     }
 }
