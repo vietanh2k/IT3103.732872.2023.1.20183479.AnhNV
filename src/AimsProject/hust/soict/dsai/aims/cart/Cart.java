@@ -3,6 +3,8 @@ package AimsProject.hust.soict.dsai.aims.cart;
 import AimsProject.hust.soict.dsai.aims.disc.DVD;
 import AimsProject.hust.soict.dsai.aims.media.Media;
 
+import javax.naming.LimitExceededException;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private final Media[] itemsOrdered = new Media[MAX_NUMBERS_ORDERED];
@@ -54,13 +56,13 @@ public class Cart {
         }
     }
 
-    public void addMedia(Media media) {
+    public void addMedia(Media media) throws LimitExceededException {
         if (!checkFull()) {
             itemsOrdered[qtyOrdered] = media;
             System.out.println("Object added successfully.");
             qtyOrdered++;
         } else {
-            System.out.println("The cart is full.");
+            throw new LimitExceededException("The cart is full.");
         }
     }
 

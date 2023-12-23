@@ -4,18 +4,14 @@ import AimsProject.hust.soict.dsai.aims.cart.Cart;
 import AimsProject.hust.soict.dsai.aims.media.Media;
 import AimsProject.hust.soict.dsai.aims.playable.Playable;
 import AimsProject.hust.soict.dsai.aims.store.Store;
+import GuiProject.hust.soict.dsai.PlayerException;
 
+import javax.naming.LimitExceededException;
 import java.util.Scanner;
 
 public class Aims {
     private static Store store = new Store();
     private static Cart cart = new Cart();
-
-    public static void main(String[] args) {
-        System.out.println("HoVaTen: Nguyen Viet Anh");
-        System.out.println("MSSV: 20183479\n\n\n\n");
-        Cart anOrder = new Cart();
-    }
 
     public static void showMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -90,7 +86,7 @@ public class Aims {
         }
     }
 
-    public static void seeMediaDetails() {
+    public static void seeMediaDetails() throws LimitExceededException, PlayerException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the title of the media: ");
@@ -133,7 +129,7 @@ public class Aims {
         }
     }
 
-    public static void addMediaToCart() {
+    public static void addMediaToCart() throws LimitExceededException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the title of the media in store: ");
@@ -148,7 +144,7 @@ public class Aims {
         }
     }
 
-    public static void playMedia() {
+    public static void playMedia() throws PlayerException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the title of the media: ");
@@ -190,5 +186,11 @@ public class Aims {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("HoVaTen: Nguyen Viet Anh");
+        System.out.println("MSSV: 20183479\n\n\n\n");
+        showMenu();
     }
 }

@@ -6,7 +6,7 @@ import AimsProject.hust.soict.dsai.aims.media.Media;
 public class Store {
     public static final int MAX_NUMBERS = 999;
     private final Media[] itemsInStore = new Media[MAX_NUMBERS];
-    int qtyOrdered;
+    public int qtyOrdered;
 
     public boolean checkFull() {
         if (qtyOrdered < 20) {
@@ -35,16 +35,6 @@ public class Store {
         }
     }
 
-    public Media search(String title) {
-        for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsInStore[i].getTitle().equals(title)) {
-                return itemsInStore[i];
-            }
-        }
-
-        return null;
-    }
-
     public void removeMedia(Media media) {
         if (qtyOrdered == 0) {
             System.out.println("The store is empty. Can not remove any object.");
@@ -66,6 +56,20 @@ public class Store {
                 System.out.println("There is no object matching the object you want to delete.");
             }
         }
+    }
+
+    public Media[] getItem() {
+        return itemsInStore;
+    }
+
+    public Media search(String title) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsInStore[i].getTitle().equals(title)) {
+                return itemsInStore[i];
+            }
+        }
+
+        return null;
     }
 
 }
